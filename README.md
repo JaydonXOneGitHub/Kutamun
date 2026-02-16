@@ -34,8 +34,34 @@ fn callback(
 fn main() {
   let multi: MultiGrid<Test> = MultiGrid::new()
   .with_grid((0, Grid::new())) // the (usize, Grid<T>) pair is for indexing
-  .with_selected_grid(0) // This automatically selects the corresponding Grid if it's there
-  .with_navigation_callback(Some(Box::new(callback))); // This assigns navigation callback (must be set for navigation)
+  .with_selected_grid(0); // This automatically selects the corresponding Grid if it's there
+
+  // Fill out the rest of your logic here
+}
+```
+
+Or, for a thread-safe example:<br>
+```rust
+use kutamun::{AtomicMultiGrid, Grid};
+
+pub struct Test {
+  msg: String
+}
+
+// This is where your navigation logic goes.
+// Think about your implementation carefully
+// to prevent it from going all over the place.
+fn callback(
+    dir: Direction,
+    old_pos: Vector3<usize>
+) -> Vector3<usize> {
+    Vector3::default()
+}
+
+fn main() {
+  let multi: AtomicMultiGrid<Test> = AtomicMultiGrid::new()
+  .with_grid((0, Grid::new())) // the (usize, Grid<T>) pair is for indexing
+  .with_selected_grid(0); // This automatically selects the corresponding Grid if it's there
 
   // Fill out the rest of your logic here
 }
@@ -43,4 +69,8 @@ fn main() {
 
 # Features
 Thanks to its architecture, it allows for lightweight and O(1) layout search.<br>
-Rather than AABB, it utilizes index searching via a `HashSet<usize, Vec<Vec<T>>>` under the hood.<br>
+Under the hood, `MultiGrid` and `AtomicMultiGrid` hold<br>
+a handle to `InternalMultiGrid`, the former wrapping it<br>
+instead an `Rc&lt;RefCell&lt;T&gt;&gt;` and the latter in<br>
+an `Arc&lt;Mutex&lt;T&gt;&gt;`. `InternalMultiGrid` itself<br>
+holds a `HashSet&lt;usize, Vec&lt;Vec&lt;T&gt;&gt;&gt;`.
