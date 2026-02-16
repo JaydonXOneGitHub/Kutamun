@@ -83,6 +83,10 @@ impl<GridButton> MultiGrid<GridButton> {
     pub fn get_internal(&self) -> Weak<RefCell<InternalMultiGrid<GridButton>>> {
         return Rc::downgrade(&self.internal_grid);
     }
+
+    pub fn get_internal_ref(&self) -> &Rc<RefCell<InternalMultiGrid<GridButton>>> {
+        return &self.internal_grid;
+    }
 }
 
 impl<GridButton> Clone for MultiGrid<GridButton> {

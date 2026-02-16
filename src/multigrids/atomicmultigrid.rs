@@ -95,6 +95,10 @@ impl<GridButton> AtomicMultiGrid<GridButton> {
     pub fn get_internal(&self) -> Weak<Mutex<InternalMultiGrid<GridButton>>> {
         return Arc::downgrade(&self.internal_grid);
     }
+
+    pub fn get_internal_ref(&self) -> &Arc<Mutex<InternalMultiGrid<GridButton>>> {
+        return &self.internal_grid;
+    }
 }
 
 impl<GridButton> Clone for AtomicMultiGrid<GridButton> {
