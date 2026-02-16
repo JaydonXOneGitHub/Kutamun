@@ -2,6 +2,9 @@
 name = "kutamun"
 version = "0.1.0"
 edition = "2024"
+description = "An index-based spatial navigation library"
+license-file = "LICENSE.txt"
+readme = "README.md"
 
 [dependencies]
 vector-x = "0.1.3"
