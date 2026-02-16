@@ -1,6 +1,6 @@
 [package]
 name = "kutamun"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "An index-based spatial navigation library"
 license-file = "LICENSE.txt"

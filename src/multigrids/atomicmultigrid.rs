@@ -96,3 +96,11 @@ impl<GridButton> AtomicMultiGrid<GridButton> {
         return Arc::downgrade(&self.internal_grid);
     }
 }
+
+impl<GridButton> Clone for AtomicMultiGrid<GridButton> {
+    fn clone(&self) -> Self {
+        return Self {
+            internal_grid: self.internal_grid.clone()
+        };
+    }
+}

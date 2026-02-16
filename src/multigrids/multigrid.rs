@@ -84,3 +84,11 @@ impl<GridButton> MultiGrid<GridButton> {
         return Rc::downgrade(&self.internal_grid);
     }
 }
+
+impl<GridButton> Clone for MultiGrid<GridButton> {
+    fn clone(&self) -> Self {
+        return Self {
+            internal_grid: self.internal_grid.clone()
+        };
+    }
+}
