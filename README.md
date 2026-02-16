@@ -71,6 +71,6 @@ fn main() {
 Thanks to its architecture, it allows for lightweight and O(1) layout search.<br>
 Under the hood, `MultiGrid` and `AtomicMultiGrid` hold<br>
 a handle to `InternalMultiGrid`, the former wrapping it<br>
-instead an `Rc&lt;RefCell&lt;T&gt;&gt;` and the latter in<br>
-an `Arc&lt;Mutex&lt;T&gt;&gt;`. `InternalMultiGrid` itself<br>
-holds a `HashSet&lt;usize, Vec&lt;Vec&lt;T&gt;&gt;&gt;`.
+instead an `Rc<RefCell<T>>` and the latter in<br>
+an `Arc<Mutex<T>>`. `InternalMultiGrid` itself<br>
+holds a `HashSet<usize, Vec<Vec<T>>>`.
