@@ -25,7 +25,7 @@ pub struct Test {
 // Think about your implementation carefully
 // to prevent it from going all over the place.
 fn callback(
-    internal_grid: &InternalMultiGrid<GridButton>,
+    internal_grid: &InternalMultiGrid<Test>,
     dir: Direction,
     old_pos: Vector3<usize>
 ) -> Vector3<usize> {
@@ -53,7 +53,7 @@ pub struct Test {
 // Think about your implementation carefully
 // to prevent it from going all over the place.
 fn callback(
-    internal_grid: &InternalMultiGrid<GridButton>,
+    internal_grid: &InternalMultiGrid<Test>,
     dir: Direction,
     old_pos: Vector3<usize>
 ) -> Vector3<usize> {
