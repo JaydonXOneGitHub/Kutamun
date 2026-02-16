@@ -29,3 +29,21 @@ impl<T, E> NavRes<T, E> {
         };
     }
 }
+
+impl<T, E> Into<Result<T, E>> for NavRes<T, E> {
+    fn into(self) -> Result<T, E> {
+        return match self {
+            Self::OK(t) => Result::Ok(t),
+            Self::Error(e) => Result::Err(e)
+        };
+    }
+}
+
+impl<T, E> Into<NavRes<T, E>> for Result<T, E> {
+    fn into(self) -> NavRes<T, E> {
+        return match self {
+            Self::Ok(t) => NavRes::OK(t),
+            Self::Err(e) => NavRes::Error(e)
+        };
+    }
+}
