@@ -76,6 +76,10 @@ impl<GridButton> Grid<GridButton> {
 
         return NavRes::OK(v2.unwrap());
     }
+
+    pub fn get_buttons_mut(&mut self) -> &mut Vec<Vec<GridButton>> {
+        return &mut self.buttons;
+    }
 }
 
 impl<GridButton> Grid<GridButton> {
@@ -101,5 +105,9 @@ impl<GridButton> Grid<GridButton> {
         }
 
         return NavRes::OK(v2.unwrap());
+    }
+
+    pub fn get_buttons(&self) -> &Vec<Vec<GridButton>> {
+        return &self.buttons;
     }
 }
