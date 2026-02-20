@@ -125,4 +125,8 @@ impl<GridButton> InternalMultiGrid<GridButton> {
     pub fn get_grids_mut(&mut self) -> &mut HashMap<usize, Grid<GridButton>> {
         return &mut self.grids;
     }
+
+    pub fn get_current_grid(&self) -> Option<usize> {
+        return self.current_grid;
+    }
 }
